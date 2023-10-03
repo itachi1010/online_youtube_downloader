@@ -7,7 +7,7 @@ SECRET_KEY = 'django-insecure-&r(c_o^abc!kp1p4l^7v^6whu9o+uc9h*y36a$u@$=51r#lks*
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','127.0.0.1:52498','http://localhost:8000',"http://localhost:58757",'localhost','192.168.137.1']
+ALLOWED_HOSTS = ['online-youtube-downloader.onrender.com','127.0.0.1','127.0.0.1:52498','http://localhost:8000',"http://localhost:58757",'localhost','192.168.137.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -16,10 +16,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'gunicorn',
     'downloader',
     'corsheaders',
     'crispy_forms',
     'rest_framework',
+
 
 ]
 
