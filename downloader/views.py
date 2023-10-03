@@ -8,12 +8,11 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import VideoSerializer
 
-#changes were made
-
 def get_csrf_token(request):
     csrf_token = csrf.get_token(request)
     return JsonResponse({'csrf_token': csrf_token})
 
+@api_view(['POST'])  # Adjust the HTTP method to POST
 def download_video(request):
     if request.method == 'POST':
         form = VideoForm(request.POST)
@@ -23,7 +22,10 @@ def download_video(request):
             stream = yt.streams.get_highest_resolution()
             stream.download(output_path=video.download_location)
             video.save()
-            return redirect('video_list')
+            return JsonResponse({'message': 'Download completed successfully'})
+        else:
+            # Return a failure JSON response with form errors
+            return JsonResponse({'message': 'Download failed', 'errors': form.errors})
     else:
         form = VideoForm()
     return render(request, 'downloader/download.html', {'form': form})
