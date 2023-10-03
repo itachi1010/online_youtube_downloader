@@ -3,6 +3,8 @@ Django
 django-cors-headers
 django-crispy-forms
 djangorestframework
+gunicorn
+packaging
 pytube
 pytz
 sqlparse
