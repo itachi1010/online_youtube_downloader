@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>video_list</title>
+</head>
+<body>
+<h2>Downloaded Videos</h2>
+<ul>
+  {% for video in videos %}
+    <li>{{ video.title }}</li>
+  {% empty %}
+    <li>No videos downloaded yet.</li>
+  {% endfor %}
+</ul>
+
+</body>
+</html>
