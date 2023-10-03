@@ -6,12 +6,12 @@ from django.http import JsonResponse
 from django.middleware import csrf
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import Video
 from .serializers import VideoSerializer
 
 def get_csrf_token(request):
     csrf_token = csrf.get_token(request)
     return JsonResponse({'csrf_token': csrf_token})
+
 def download_video(request):
     if request.method == 'POST':
         form = VideoForm(request.POST)
@@ -31,7 +31,3 @@ def video_list(request):
     videos = Video.objects.all()
     serializer = VideoSerializer(videos, many=True)
     return Response(serializer.data)
-
-def video_list(request):
-    videos = Video.objects.all()
-    return render(request, 'downloader/video_list.html', {'videos': videos})
