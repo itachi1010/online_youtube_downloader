@@ -8,6 +8,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import VideoSerializer
 
+#changes were made
+
 def get_csrf_token(request):
     csrf_token = csrf.get_token(request)
     return JsonResponse({'csrf_token': csrf_token})
