@@ -25,7 +25,7 @@
 </head>
 <body>
     <h2>Download YouTube Video</h2>
-    <form method="post" id="download-form">
+    <form method="POST" id="download-form">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Download</button>
