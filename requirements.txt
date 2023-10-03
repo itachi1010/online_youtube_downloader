@@ -9,3 +9,4 @@ pytube
 pytz
 sqlparse
 tzdata
+whitenoise
