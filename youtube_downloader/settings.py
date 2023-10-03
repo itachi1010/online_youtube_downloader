@@ -87,7 +87,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 
 STORAGES = {
     "staticfiles": {
