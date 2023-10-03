@@ -4,15 +4,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>download</title>
+    <title>Download</title>
+
+    <!-- Add CSS for the loading icon -->
+    <style>
+        .loading {
+            display: none; /* Initially hidden */
+            text-align: center;
+        }
+
+        .loading i {
+            font-size: 48px;
+            color: #007bff; /* Blue color, change as needed */
+        }
+
+        .message {
+            text-align: center;
+            color: green; /* Success message color, change as needed */
+        }
+    </style>
 </head>
 <body>
     <h2>Download YouTube Video</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Download</button>
-</form>
+    <form method="post" id="download-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Download</button>
+    </form>
 
+    <!-- Loading icon and success message -->
+    <div class="loading" id="loading-div">
+        <i class="fa fa-spinner fa-spin"></i> Downloading...
+    </div>
+    <div class="message" id="success-message" style="display: none;">Download completed successfully!</div>
+
+    <!-- JavaScript to show/hide loading icon and success message -->
+    <script>
+        document.querySelector('#download-form').addEventListener('submit', function () {
+            // Hide the form
+            document.querySelector('form').style.display = 'none';
+
+            // Show the loading icon
+            document.querySelector('#loading-div').style.display = 'block';
+
+            // Simulate download completion after 5 seconds (replace this with actual logic)
+            setTimeout(function () {
+                document.querySelector('#loading-div').style.display = 'none';
+                document.querySelector('#success-message').style.display = 'block';
+            }, 5000); // Adjust the delay as needed
+        });
+    </script>
 </body>
 </html>
